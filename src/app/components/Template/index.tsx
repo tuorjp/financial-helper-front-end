@@ -3,6 +3,7 @@
 import { Box, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { bodyContainerTemplate, containerHeader, containerHeaderLinks, containerHeaderLogo, containerTemplate } from './styles'
 
 type TemplateProps = {
   children: React.ReactNode
@@ -10,25 +11,9 @@ type TemplateProps = {
 
 export function Template({ children }: TemplateProps) {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100vh',
-        minHeight: '100vh',
-        alignItems: 'center',
-      }}
-    >
+    <Box sx={containerTemplate}>
       <Header />
-      <Box
-        sx={{
-          px: 6,
-          py: 4,
-          width: '100%',
-          height: '100vh',
-        }}
-      >
+      <Box sx={bodyContainerTemplate}>
         {children}
       </Box>
     </Box>
@@ -39,39 +24,14 @@ function Header() {
   const router = useRouter()
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        background: '#5b21b6',
-        width: '100%',
-        height: 100,
-        color: '#f1f5f9',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        px: 4
-      }}
-
-    >
-      <Box 
-        sx={{
-          flexDirection: 'row',
-          display: 'flex',
-          justifyContent: 'center',
-          textAlign: 'center',
-        }}
-      >
+    <Box sx={containerHeader}>
+      <Box sx={containerHeaderLogo}>
         <Typography variant='h3' fontWeight={'bold'}>
           Financial Helper
         </Typography>
       </Box>
 
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          flex: 1
-        }}
-      >
+      <Box sx={containerHeaderLinks}>
         <Typography
           variant='h6'
           onClick={() => router.push('/')}
