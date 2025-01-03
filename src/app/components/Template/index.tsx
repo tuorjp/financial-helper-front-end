@@ -1,8 +1,8 @@
 'use client'
 
-import { Box, Typography } from "@mui/material"
-import { useRouter } from "next/navigation"
-import React from "react"
+import { Box, Typography } from '@mui/material'
+import { useRouter } from 'next/navigation'
+import React from 'react'
 
 type TemplateProps = {
   children: React.ReactNode
@@ -12,12 +12,12 @@ export function Template({ children }: TemplateProps) {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
+        display: 'flex',
+        flexDirection: 'column',
         width: '100%',
-        height: "100vh",
-        minHeight: "100vh",
-        alignItems: "center",
+        height: '100vh',
+        minHeight: '100vh',
+        alignItems: 'center',
       }}
     >
       <Header />
@@ -26,7 +26,7 @@ export function Template({ children }: TemplateProps) {
           px: 6,
           py: 4,
           width: '100%',
-          height: "100vh",
+          height: '100vh',
         }}
       >
         {children}
@@ -41,13 +41,13 @@ function Header() {
   return (
     <Box
       sx={{
-        display: "flex",
-        background: "#5b21b6",
+        display: 'flex',
+        background: '#5b21b6',
         width: '100%',
         height: 100,
-        color: "#f1f5f9",
-        alignItems: "center",
-        justifyContent: "space-evenly",
+        color: '#f1f5f9',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
         px: 4
       }}
 
@@ -57,46 +57,46 @@ function Header() {
           flexDirection: 'row',
           display: 'flex',
           justifyContent: 'center',
-          textAlign: "center",
+          textAlign: 'center',
         }}
       >
-        <Typography variant="h3" fontWeight={"bold"}>
+        <Typography variant='h3' fontWeight={'bold'}>
           Financial Helper
         </Typography>
       </Box>
 
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
+          display: 'flex',
+          justifyContent: 'space-evenly',
           flex: 1
         }}
       >
         <Typography
-          variant="h6"
+          variant='h6'
           onClick={() => router.push('/')}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: 'pointer' }}
         >
           Entradas/Saídas
         </Typography>
         <Typography
-          variant="h6"
+          variant='h6'
           onClick={() => router.push('/')}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: 'pointer' }}
         >
           Relatórios
         </Typography>
         <Typography
-          variant="h6"
+          variant='h6'
           onClick={() => router.push('/')}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: 'pointer' }}
         >
           Categorias
         </Typography>
         <Typography
-          variant="h6"
+          variant='h6'
           onClick={() => router.push('/')}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: 'pointer' }}
         >
           Conta
         </Typography>

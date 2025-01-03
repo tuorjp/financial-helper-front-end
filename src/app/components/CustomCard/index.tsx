@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material"
-import { useRouter } from "next/navigation"
-import * as motion from "motion/react-client"
+import { Box, Typography } from '@mui/material'
+import { useRouter } from 'next/navigation'
+import * as motion from 'motion/react-client'
 
 type CustomCardProps = {
   title?: string,
@@ -32,11 +32,11 @@ export function CustomCard({ text, route, title }: CustomCardProps) {
           }
         }}
       >
-        <Typography variant="h6" mb={2} sx={{ borderBottom: '1px dashed', borderColor: '#94a3b8' }}>
+        <Typography variant='h6' mb={2} sx={{ borderBottom: '1px dashed', borderColor: '#94a3b8' }}>
           {title}
         </Typography>
         <Box>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             {text}
           </Typography>
         </Box>
