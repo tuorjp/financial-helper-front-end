@@ -77,21 +77,28 @@ function Header() {
           onClick={() => router.push('/')}
           sx={{ cursor: "pointer" }}
         >
-          Cadastro
+          Entradas/Saídas
         </Typography>
         <Typography
           variant="h6"
           onClick={() => router.push('/')}
           sx={{ cursor: "pointer" }}
         >
-          Registros
+          Relatórios
         </Typography>
         <Typography
           variant="h6"
           onClick={() => router.push('/')}
           sx={{ cursor: "pointer" }}
         >
-          Informações pessoais
+          Categorias
+        </Typography>
+        <Typography
+          variant="h6"
+          onClick={() => router.push('/')}
+          sx={{ cursor: "pointer" }}
+        >
+          Conta
         </Typography>
       </Box>
     </Box>

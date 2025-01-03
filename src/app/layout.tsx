@@ -1,10 +1,10 @@
-import { CssBaseline } from '@mui/material';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { CssBaseline } from '@mui/material'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
