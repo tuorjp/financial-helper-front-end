@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Grid2, Typography } from '@mui/material'
+import { Box, Grid2, Typography } from '@mui/material'
 import { Template } from './components/Template'
 import { CustomCard } from './components/CustomCard'
 
