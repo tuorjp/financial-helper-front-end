@@ -40,10 +40,31 @@ const containerHeaderLinks: SxProps<Theme> = {
     flex: 1,
 }
 
+const footerContainer: SxProps<Theme> = {
+    background: '#5b21b6',
+    width: '100%',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+}
+
+const footerLinksContainers: SxProps<Theme> = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    color: 'inherit',
+}
+
 export {
     containerTemplate,
     bodyContainerTemplate,
     containerHeader,
     containerHeaderLogo,
     containerHeaderLinks,
+    footerContainer,
+    footerLinksContainers,
 }
