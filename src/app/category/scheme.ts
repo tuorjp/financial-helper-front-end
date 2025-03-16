@@ -10,12 +10,14 @@ export interface FormProps {
   name: string,
 }
 
-export const formSchema: FormProps = {
-  type: PropertyType.Entrada,
+export const formSchema: Required<FormProps> = {
+  type: PropertyType.Entrada, 
   name: '',
 }
 
 export const formSchemaValidation = z.object({
-  type: z.nativeEnum(PropertyType),
+  type: z.nativeEnum(PropertyType).refine((val) => val !== undefined, {
+    message: 'Tipo de categoria é obrigatório',
+  }),
   name: z.string().trim().nonempty('Nome é um campo obrigatório')
 })
