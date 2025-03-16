@@ -3,7 +3,6 @@
 import { Box, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { bodyContainerTemplate, containerHeader, containerHeaderLinks, containerHeaderLogo, containerTemplate, footerContainer, footerLinksContainers } from './styles'
 import { GithubLogo } from 'phosphor-react'
 
 type TemplateProps = {
@@ -12,9 +11,25 @@ type TemplateProps = {
 
 export function Template({ children }: TemplateProps) {
   return (
-    <Box sx={containerTemplate}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100vh',
+        minHeight: '100vh',
+        alignItems: 'center',
+      }}
+    >
       <Header />
-      <Box sx={bodyContainerTemplate}>
+      <Box
+        sx={{
+          px: 6,
+          py: 4,
+          width: '100%',
+          height: '100vh',
+        }}
+      >
         {children}
       </Box>
       <Footer />
@@ -26,14 +41,38 @@ function Header() {
   const router = useRouter()
 
   return (
-    <Box sx={containerHeader}>
-      <Box sx={containerHeaderLogo}>
+    <Box
+      sx={{
+        display: 'flex',
+        background: '#5b21b6',
+        width: '100%',
+        height: 100,
+        color: '#f1f5f9',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        px: 4,
+      }}
+    >
+      <Box
+        sx={{
+          flexDirection: 'row',
+          display: 'flex',
+          justifyContent: 'center',
+          textAlign: 'center',
+        }}
+      >
         <Typography variant='h3' fontWeight={'bold'}>
           Financial Helper
         </Typography>
       </Box>
 
-      <Box sx={containerHeaderLinks}>
+      <Box 
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          flex: 1,
+        }}
+      >
         <Typography
           variant='h6'
           onClick={() => router.push('/')}
@@ -70,7 +109,14 @@ function Header() {
 function Footer() {
   return (
     <Box
-      sx={footerContainer}
+      sx={{
+        background: '#5b21b6',
+        width: '100%',
+        color: '#fff',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+      }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography>
@@ -78,7 +124,15 @@ function Footer() {
         </Typography>
       </Box>
       <Box
-        sx={footerLinksContainers}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          color: 'inherit',
+        }}
         component={'a'}
         href='https://github.com/tuorjp'
         target='_blank'

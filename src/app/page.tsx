@@ -37,7 +37,7 @@ export default function Home() {
             <CustomCard
               title='Categorias'
               text='Registre cada tipo de gasto e ganho!! Cadastre as categorias de gastos e ganhos 🔍💰'
-              route='/'
+              route='/category'
             />
           </Grid2>
           <Grid2 size={3}>
@@ -50,5 +50,5 @@ export default function Home() {
         </Grid2>
       </Box>
     </Template>
-  );
+  )
 }
