@@ -9,6 +9,18 @@ export type SingleCategory = {
 export type ManyCategories = SingleCategory[]
 
 class CategoryService {
+  static #instance: CategoryService
+
+  private constructor() { }
+
+  public static getInstance() {
+    if (!CategoryService.#instance) {
+      CategoryService.#instance = new CategoryService()
+    }
+
+    return CategoryService.#instance
+  }
+
   async create(data: SingleCategory): Promise<SingleCategory | null> {
     try {
       console.log('DATA', data)
@@ -34,7 +46,7 @@ class CategoryService {
 }
 
 const useCategoryService = () => {
-  return new CategoryService()
+  return CategoryService.getInstance()
 }
 
 export { useCategoryService }

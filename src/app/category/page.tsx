@@ -3,22 +3,21 @@
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material"
 import { Template } from "../components/Template"
 import { Controller, useForm } from "react-hook-form"
-import { FormProps, formSchema, formSchemaValidation } from "./scheme"
+import { CategoryFormProps, categoryFormSchema, categoryFormSchemaValidation } from "./scheme"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { DataGrid } from "@mui/x-data-grid"
-import { ptBR } from "@mui/material/locale"
 
 export default function Category() {
   const {
     handleSubmit,
     control,
     formState: { errors }
-  } = useForm<FormProps>({
-    resolver: zodResolver(formSchemaValidation),
-    defaultValues: formSchema
+  } = useForm<CategoryFormProps>({
+    resolver: zodResolver(categoryFormSchemaValidation),
+    defaultValues: categoryFormSchema
   })
 
-  const onSubmit = (data: FormProps) => console.log(data)
+  const onSubmit = (data: CategoryFormProps) => console.log(data)
 
   return (
     <Template>

@@ -5,17 +5,17 @@ export enum PropertyType {
   'Saída' = 1
 }
 
-export interface FormProps {
+export interface CategoryFormProps {
   type: PropertyType,
   name: string,
 }
 
-export const formSchema: Required<FormProps> = {
+export const categoryFormSchema: Required<CategoryFormProps> = {
   type: PropertyType.Entrada, 
   name: '',
 }
 
-export const formSchemaValidation = z.object({
+export const categoryFormSchemaValidation = z.object({
   type: z.nativeEnum(PropertyType).refine((val) => val !== undefined, {
     message: 'Tipo de categoria é obrigatório',
   }),
