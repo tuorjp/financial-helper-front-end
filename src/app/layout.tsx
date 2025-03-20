@@ -1,5 +1,6 @@
 import { CssBaseline } from '@mui/material'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+import { UserProvider } from './context/UserContext'
 
 export default function RootLayout({
   children,
@@ -9,10 +10,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <AppRouterCacheProvider>
-          <CssBaseline />
-          {children}
-        </AppRouterCacheProvider>
+        <UserProvider>
+          <AppRouterCacheProvider>
+            <CssBaseline />
+            {children}
+          </AppRouterCacheProvider>
+        </UserProvider>
       </body>
     </html>
   )

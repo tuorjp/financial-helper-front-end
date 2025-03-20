@@ -24,12 +24,13 @@ class Authentication {
     return Authentication.#instance
   }
 
-  async login(userData: AuthUserProps) {
+  async login(userData: AuthUserProps, setUser: (user: string | null) => void) {
     try {
       const response = api.post<UserProps>('authenticate', userData)
       const userDataResponse = (await response).data
       nookies.set(null, 'TK', userDataResponse.token)
       nookies.set(null, 'USER', userDataResponse.user)
+      setUser(userDataResponse.user)
     } catch (error) {
       console.log(error)
     }
