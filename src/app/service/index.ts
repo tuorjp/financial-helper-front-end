@@ -1,4 +1,5 @@
 import axios from "axios"
+import nookies from 'nookies'
 
 let url: string = 'http://localhost:8080/v1'
 
@@ -8,5 +9,21 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 })
+
+api.interceptors.request.use(
+  (config) => {
+    const cookies = nookies.get()
+    const token = cookies.TK
+
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
 
 export default api
