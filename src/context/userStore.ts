@@ -6,12 +6,12 @@ import { useAuthenticationService } from '../service/AuthenticationService'
 
 type UserStore = {
   user: string | null;
-  setUser: (user: string) => void;
+  setUser: (user: string | null) => void;
 }
 
 export const useUserStore = create<UserStore>((set) => ({
   user: null,
-  setUser: (user: string) => set({ user }),
+  setUser: (user: string | null) => set({ user }),
 }))
 
 export const useSyncUserWithAuth = () => {

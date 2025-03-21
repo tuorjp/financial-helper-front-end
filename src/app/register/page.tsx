@@ -6,9 +6,11 @@ import { Rewind } from 'phosphor-react'
 import { Controller, useForm } from 'react-hook-form'
 import { RegisterFormProps, registerFormSchema, registerFormSchemaValidation } from './scheme'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useUserService } from '@/service/UserService'
 
 export default function Register() {
   const router = useRouter()
+  const userService = useUserService()
 
   const {
     control,
@@ -22,6 +24,7 @@ export default function Register() {
   async function onSubmit(registerFormData: RegisterFormProps) {
     try {
       console.log(registerFormData)
+      userService.newUser(registerFormData)
     } catch (error) {
       console.error(error)
     }

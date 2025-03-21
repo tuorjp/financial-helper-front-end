@@ -6,9 +6,14 @@ import { AuthFormProps, authFormSchema, authFormSchemaValidation } from './schem
 import { zodResolver } from '@hookform/resolvers/zod'
 import { PaperPlaneRight } from 'phosphor-react'
 import { useRouter } from 'next/navigation'
+import { useAuthenticationService } from '@/service/AuthenticationService'
+import { useUserStore } from '@/context/userStore'
 
 export default function Login() {
   const router = useRouter()
+  const authService = useAuthenticationService()
+  const { setUser } = useUserStore()
+  
   const {
     control,
     handleSubmit,
@@ -21,6 +26,8 @@ export default function Login() {
   function onSubmit(userData: AuthFormProps) {
     try {
       console.log(userData)
+      authService.login(userData, setUser)
+      router.push('/')
     } catch (error) {
       console.error(error)
     }
