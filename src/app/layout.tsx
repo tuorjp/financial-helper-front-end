@@ -1,21 +1,24 @@
+'use client'
+
 import { CssBaseline } from '@mui/material'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import { UserProvider } from '../context/UserContext'
+import { useSyncUserWithAuth } from '@/context/userStore'
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+  useSyncUserWithAuth()
+
   return (
     <html lang='en'>
       <body>
-        <UserProvider>
           <AppRouterCacheProvider>
             <CssBaseline />
             {children}
           </AppRouterCacheProvider>
-        </UserProvider>
       </body>
     </html>
   )
