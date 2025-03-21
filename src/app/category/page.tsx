@@ -1,11 +1,11 @@
 'use client'
 
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material"
-import { Template } from "../components/Template"
-import { Controller, useForm } from "react-hook-form"
-import { CategoryFormProps, categoryFormSchema, categoryFormSchemaValidation } from "./scheme"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { DataGrid } from "@mui/x-data-grid"
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Template } from '../../components/Template'
+import { Controller, useForm } from 'react-hook-form'
+import { CategoryFormProps, categoryFormSchema, categoryFormSchemaValidation } from './scheme'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { DataGrid } from '@mui/x-data-grid'
 
 export default function Category() {
   const {
@@ -28,32 +28,32 @@ export default function Category() {
       >
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <Controller
-            name="name"
+            name='name'
             control={control}
             render={({ field }) => (
               <TextField
-                id="name"
-                label="Nome"
-                variant="outlined"
+                id='name'
+                label='Nome'
+                variant='outlined'
                 {...field}
                 value={field.value || ''}
               />
             )}
           />
-          {errors.name && <Typography color="red" fontSize={12}>Nome é obrigatório.</Typography>}
+          {errors.name && <Typography color='red' fontSize={12}>Nome é obrigatório.</Typography>}
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <Controller
-            name="type"
+            name='type'
             control={control}
             render={({ field }) => (
               <FormControl fullWidth>
-                <InputLabel id="label-type">Tipo de categoria</InputLabel>
+                <InputLabel id='label-type'>Tipo de categoria</InputLabel>
                 <Select
-                  labelId="label-type"
-                  id="type"
+                  labelId='label-type'
+                  id='type'
                   value={field.value}
-                  label="Tipo"
+                  label='Tipo'
                   onChange={field.onChange}
                 >
                   <MenuItem value={0}>Entrada</MenuItem>
@@ -62,7 +62,7 @@ export default function Category() {
               </FormControl>
             )}
           />
-          {errors.type && <Typography color="red" fontSize={12}>Tipo é obrigatório.</Typography>}
+          {errors.type && <Typography color='red' fontSize={12}>Tipo é obrigatório.</Typography>}
         </Box>
         <Box
           sx={{
@@ -70,7 +70,7 @@ export default function Category() {
             justifyContent: 'flex-end'
           }}
         >
-          <Button type="submit" variant="contained">Enviar</Button>
+          <Button type='submit' variant='contained'>Enviar</Button>
         </Box>
       </Box>
       <Box

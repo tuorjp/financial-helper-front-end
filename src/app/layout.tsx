@@ -1,6 +1,6 @@
 import { CssBaseline } from '@mui/material'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import { UserProvider } from './context/UserContext'
+import { UserProvider } from '../context/UserContext'
 
 export default function RootLayout({
   children,

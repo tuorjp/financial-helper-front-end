@@ -1,15 +1,6 @@
 import nookies from 'nookies'
 import api from '.'
-
-export type AuthUserProps = {
-  email: string;
-  password: string;
-}
-
-export type UserProps = {
-  token: string;
-  user: string;
-}
+import { AuthUserProps, UserProps } from './@types'
 
 class Authentication {
   static #instance: Authentication

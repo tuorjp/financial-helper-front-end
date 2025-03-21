@@ -1,12 +1,5 @@
-import api from ".";
-
-export type SingleCategory = {
-  id?: number;
-  name: string;
-  type: number;
-}
-
-export type ManyCategories = SingleCategory[]
+import api from '.'
+import { ManyCategories, SingleCategory } from './@types'
 
 class CategoryService {
   static #instance: CategoryService

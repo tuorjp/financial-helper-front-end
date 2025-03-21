@@ -138,7 +138,7 @@ function Footer() {
         target='_blank'
       >
         <Typography>
-          Click to see more projects!
+          Clique para ver mais projetos!
         </Typography>
         <GithubLogo size={24} />
       </Box>

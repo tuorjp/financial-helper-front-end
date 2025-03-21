@@ -1,26 +1,27 @@
 'use client'
 
 import { Box, Button, Paper, TextField, Typography } from '@mui/material'
-import { Controller, useForm } from 'react-hook-form'
-import { AuthFormProps, authFormSchema, authFormSchemaValidation } from './scheme'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { PaperPlaneRight } from 'phosphor-react'
 import { useRouter } from 'next/navigation'
+import { Rewind } from 'phosphor-react'
+import { Controller, useForm } from 'react-hook-form'
+import { RegisterFormProps, registerFormSchema, registerFormSchemaValidation } from './scheme'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-export default function Login() {
+export default function Register() {
   const router = useRouter()
+
   const {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm<AuthFormProps>({
-    resolver: zodResolver(authFormSchemaValidation),
-    defaultValues: authFormSchema
+  } = useForm<RegisterFormProps>({
+    resolver: zodResolver(registerFormSchemaValidation),
+    defaultValues: registerFormSchema
   })
 
-  function onSubmit(userData: AuthFormProps) {
+  async function onSubmit(registerFormData: RegisterFormProps) {
     try {
-      console.log(userData)
+      console.log(registerFormData)
     } catch (error) {
       console.error(error)
     }
@@ -50,7 +51,7 @@ export default function Login() {
         }}
       >
         <Typography variant='h4'>Ajudante financeiro</Typography>
-        <Typography variant='body1'>Login</Typography>
+        <Typography variant='body1'>Novo usuário(a)</Typography>
         <Box
           component={'form'}
           onSubmit={handleSubmit(onSubmit)}
@@ -61,6 +62,23 @@ export default function Login() {
             minWidth: 300
           }}
         >
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Controller
+              name='name'
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  id='name'
+                  label='Nome'
+                  size='small'
+                  variant='outlined'
+                  {...field}
+                  value={field.value}
+                />
+              )}
+            />
+            {errors.name && <Typography color='red' fontSize={12}>{errors.name?.message}</Typography>}
+          </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Controller
               name='email'
@@ -94,14 +112,14 @@ export default function Login() {
               )}
             />
             {errors.password && <Typography color='red' fontSize={12}>{errors.password?.message}</Typography>}
-            <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
               <Button color='secondary' variant='contained' type='submit' >
-                Entrar
+                Registrar
               </Button>
             </Box>
           </Box>
         </Box>
-        <Box 
+        <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
@@ -109,13 +127,13 @@ export default function Login() {
             cursor: 'pointer'
           }}
           onClick={() => {
-            router.push('/register')
+            router.push('/login')
           }}
         >
           <Typography color='secondary'>
-            Novo por aqui? Registre-se 
+            Voltar
           </Typography>
-          <PaperPlaneRight color='#9C27B0' size={22} />
+          <Rewind color='#9C27B0' size={22} />
         </Box>
       </Paper>
     </Box>

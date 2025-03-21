@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 import nookies from 'nookies'
 
 let url: string = 'http://localhost:8080/v1'
@@ -6,7 +6,7 @@ let url: string = 'http://localhost:8080/v1'
 const api = axios.create({
   baseURL: url,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 })
 
@@ -19,7 +19,7 @@ api.interceptors.request.use(
       config.headers['Authorization'] = `Bearer ${token}`
     }
 
-    return config;
+    return config
   },
   (error) => {
     return Promise.reject(error)

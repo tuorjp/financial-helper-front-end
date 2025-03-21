@@ -1,8 +1,8 @@
 'use client'
 
-import { Box, Grid2, Typography } from "@mui/material";
-import { Template } from "../components/Template";
-import { CustomCard } from "../components/CustomCard";
+import { Box, Grid2, Typography } from '@mui/material'
+import { Template } from '../../components/Template'
+import { CustomCard } from '../../components/CustomCard'
 
 export default function Home() {
     return (
@@ -15,7 +15,7 @@ export default function Home() {
         >
           <Box mb={5} display={'flex'} flexDirection={'column'} alignItems={'center'}>
             <Typography variant='h4'>
-              Bem-vindo ao Financial helper!!
+              Bem-vindo ao Ajudante financeiro!!
             </Typography>
           </Box>
           <Grid2 container spacing={2}>

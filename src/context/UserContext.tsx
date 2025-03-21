@@ -1,7 +1,7 @@
 'use client'
 
-import React, { createContext, useEffect, useState, useContext } from "react";
-import { useAuthenticationService } from "../service/AuthenticationService";
+import React, { createContext, useEffect, useState, useContext } from 'react'
+import { useAuthenticationService } from '../service/AuthenticationService'
 
 type UserContextType = {
   user: string | null;
@@ -33,9 +33,9 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 }
 
 export const useUserContext = () => {
-  const context = useContext(UserContext);
+  const context = useContext(UserContext)
   if (!context) {
-    throw new Error("useUserContext must be used within a UserProvider");
+    throw new Error('useUserContext must be used within a UserProvider')
   }
-  return context;
-};
+  return context
+}
