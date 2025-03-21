@@ -43,7 +43,7 @@ export default function Home() {
             <Grid2 size={3}>
               <CustomCard
                 title='Conta'
-                text='Edite e atualize seus dados ou exclua sua conta 🧑👩. Caso vá excluir sua conta, obrigado por escolher o Financial Helper!!'
+                text='Edite e atualize seus dados ou exclua sua conta 🧑👩. Caso vá excluir sua conta, obrigado por escolher o Ajudante Financeiro!!'
                 route='/'
               />
             </Grid2>

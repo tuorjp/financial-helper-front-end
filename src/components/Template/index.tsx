@@ -62,7 +62,7 @@ function Header() {
         }}
       >
         <Typography variant='h3' fontWeight={'bold'}>
-          Financial Helper
+          Ajudante Financeiro
         </Typography>
       </Box>
 
