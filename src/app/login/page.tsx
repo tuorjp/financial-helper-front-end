@@ -8,8 +8,10 @@ import { PaperPlaneRight } from 'phosphor-react'
 import { useRouter } from 'next/navigation'
 import { useAuthenticationService } from '@/service/AuthenticationService'
 import { useUserStore } from '@/context/userStore'
+import { useState } from 'react'
 
 export default function Login() {
+  const [loading, setloading] = useState(false)
   const router = useRouter()
   const authService = useAuthenticationService()
   const { setUser } = useUserStore()
@@ -26,7 +28,10 @@ export default function Login() {
   function onSubmit(userData: AuthFormProps) {
     try {
       console.log(userData)
+      setloading(true)
+      
       authService.login(userData, setUser)
+      setloading(false)
       router.push('/')
     } catch (error) {
       console.error(error)
@@ -103,7 +108,7 @@ export default function Login() {
             {errors.password && <Typography color='red' fontSize={12}>{errors.password?.message}</Typography>}
             <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}}>
               <Button color='secondary' variant='contained' type='submit' >
-                Entrar
+                { loading == true ? 'Carregando...' : 'Entrar' }
               </Button>
             </Box>
           </Box>
