@@ -1,7 +1,7 @@
 import axios from 'axios'
 import nookies from 'nookies'
 
-let url: string = 'http://localhost:8080/v1'
+const url: string = 'http://localhost:8080/v1'
 
 const api = axios.create({
   baseURL: url,
